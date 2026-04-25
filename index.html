@@ -1,10 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METEOSTEP: Погода в Беларуси</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='80' font-weight='bold' text-anchor='middle' fill='%231e3a8a'>M</text></svg>">
+    <base target="_blank">
 </head>
 <body>
 
+<header class="header">
+    <div class="header-left">
+        <div class="logo">
+            <span class="logo-meteo">Meteo</span><span class="logo-step">Step</span>
+        </div>
+        <div class="navigation"></div>
+        <nav class="nav-buttons">
+            <button data-target="#now" class="nav-btn active">Сейчас</button>
+            <button data-target="#today" class="nav-btn">Сегодня</button>
+            <button data-target="#tomorrow" class="nav-btn">Завтра</button>
+            <button data-target="#threeDay" class="nav-btn">3 дня</button>
+            <button data-target="#week" class="nav-btn">Неделя</button>
+        </nav>
+    </div>
+    <div class="header-right">
+        <input type="text" class="search-input" placeholder="Поиск местоположения">
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="weather-container">
+        <div id="now" class="weather-card first">
+            <div class="error">
+                <p>НЕВЕРНОЕ НАЗВАНИЕ ГОРОДА</p>
+            </div>
+            <div class="weather">
+                <div class="weather-top">
+                    <div class="weather-left">
+                        <p class="city"></p>
+                    </div>
+                    <div class="weather-right">
+                        <div class="weather-image"></div>
+                    </div>
+                </div>
+                <div class="weather-center">
+                    <h1 class="temp"></h1>
+                </div>
+                <div class="details">
+                    <div class="col">
+                        <i class="fa-solid fa-tint"></i>
+                        <p class="humidity"></p>
+                        <p>Влажность</p>
+                    </div>
+                    <div class="col">
+                        <i class="fa-solid fa-wind"></i>
+                        <p class="wind"></p>
+                        <p>Скорость ветра</p>
+                    </div>
+                    <div class="col">
+                        <i class="fa-solid fa-cloud-rain"></i>
+                        <p class="precipitation"></p>
+                        <p>Осадки</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="today" class="weather-card second"></div>
+        <div id="tomorrow" class="weather-card third"></div>
+        <div id="threeDay" class="weather-card fourth"></div>
+        <div id="week" class="weather-card fifth"></div>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>Погода в Беларуси сегодня предоставлена исключительно для личного некоммерческого использования. <br> Прогноз погоды в Беларуси на сегодня подготовлен Шиговым Артёмом Максимовичем.</p>
+    <p>ⒸMeteoStep</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
-</html>
+</html>`
