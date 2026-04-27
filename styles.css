@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+}
+.header {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 100px;
+    box-shadow: 0 4px 8px dimgrey;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+}
+.logo-meteo {
+    color: #142883;
+}
+.logo-step {
+    color: black;
+}
+.navigation {
+    width: 2px;
+    height: 40px;
+    background: gainsboro;
+}
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+.nav-btn {
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    color: #142883;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px 18px;
+    cursor: pointer;
+}
+.nav-btn:hover {
+    background: whitesmoke;
+}
+.nav-btn.active {
+    background: #142883;
+    color: white;
+}
+.search-input {
+    margin: 15px;
+    width: 220px;
+    padding: 12px 20px;
+    border: 1px solid darkgray;
+    border-radius: 25px;
+    font-size: 15px;
+    outline: none;
+}
+.search-input:focus {
+    border: 2px solid #142883;
+    box-shadow: 1px 2px 3px darkgray;
+}
+.main-content {
+    background: linear-gradient(#142883, cornflowerblue, #8db1cd);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    justify-content: center;
+    flex: 1;
+}
+.weather-card {
+    background: white;
+    border-radius: 30px;
+    width: 900px;
+    min-height: 500px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.36);
+    margin-top: 80px;
+    scroll-margin-top: 150px;
+}
+.weather {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.weather-pic {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    border-radius: 30px 30px 0 0;
+    box-shadow: inset 0 0 100px 1px rgba(0,0,0,0.47);
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 50px;
+    gap: 10px;
+}
+.weather-pic.sunny {
+    background-image: url('https://espritgames.ru/wp-content/uploads/sites/2/2020/04/Screenshot_2-4.png');
+}
+.weather-pic.cloudy {
+    background-image: url('https://images.squarespace-cdn.com/content/v1/6123aa4da7d85907b823dc29/1646063669874-SKXA5SWVYES9QIB01OHI/clouds.jpg');
+}
+.weather-pic.rainy {
+    background-image: url('https://kartin.papik.pro/uploads/posts/2023-07/1688776919_kartin-papik-pro-p-kartinki-tuchi-s-kaplyami-dozhdya-63.jpg');
+}
+.weather-pic.snowy {
+    background-image: url('https://avatars.mds.yandex.net/get-weather/10145165/eDGuijSexZzEdEBhZJeM/orig');
+}
+.weather-pic.overcast {
+    background-image: url('https://www.caravan.kz/wp-content/uploads/2024/09/1-11.jpg');
+}
+.weather-image img {
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+}
+.weather-desc {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 4px 4px 6px black;
+}
+.error {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: red;
+}
+.city {
+    font-weight: bold;
+    color: white;
+    font-size: 40px;
+    text-shadow: 4px 4px 6px black;
+}
+.current-time {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 30px;
+    text-shadow: 4px 4px 6px black;
+}
+.temp {
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 4px 4px 6px black;
+}
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+.col {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.col p:first-of-type {
+    font-size: 30px;
+    font-weight: bold;
+    color: #142883;
+}
+.col p:last-child {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: dimgrey;
+}
+
+
+.second {
+    min-width: 1200px;
+    border-radius: 50px;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.second::before {
+    content: attr(data-city)" / сегодня" "\A" attr(data-date);
+    white-space: pre;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #142883;
+    margin-bottom: 20px;
+}
+#today {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.forecast-item {
+    background: rgba(249,249,249,0.58);
+    border-radius: 50px;
+    padding: 15px;
+    text-align: center;
+    min-width: 125px;
+    box-shadow: 0 2px 8px darkgray;
+}
+.forecast-precip {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1e40af;
+    margin-top: 5px;
+}
+.forecast-item:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+.forecast-time {
+    font-weight: bold;
+    color: #142883;
+}
+.forecast-temp {
+    font-size: 22px;
+    font-weight: bold;
+    color: #142883;
+}
+.forecast-desc {
+    font-size: 14px;
+    font-weight: bold;
+    color: dimgrey;
+    text-transform: uppercase;
+}
+
+
+.third {
+    min-width: 1200px;
+    border-radius: 50px;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.third::before {
+    content: attr(data-city)" / завтра" "\A" attr(data-date);
+    white-space: pre;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #142883;
+    margin-bottom: 20px;
+}
+#tomorrow-forecast {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.fourth {
+    min-width: 1600px;
+    border-radius: 50px;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fourth::before {
+    content: attr(data-city)" / 5 дней";
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #142883;
+    margin-bottom: 20px;
+}
+#week-forecast {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 15px;
+    gap: 20px;
+    justify-content: center;
+}
+.week-item {
+    background: rgba(249,249,249,0.58);
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 2px 8px darkgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.week-item:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+.week-date {
+    font-size: 18px;
+    font-weight: bold;
+    color: #142883;
+}
+.week-temp {
+    font-size: 26px;
+    font-weight: bold;
+    color: #142883;
+}
+.week-desc {
+    font-size: 13px;
+    font-weight: bold;
+    color: dimgrey;
+    text-transform: uppercase;
+}
+.week-precip {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1e40af;
+}
+.footer {
+    background: none;
+    height: 90px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px;
+    color: dimgrey;
+}
