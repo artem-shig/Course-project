@@ -6,7 +6,6 @@
     <title>METEOSTEP: Погода в Беларуси</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='75' font-size='80' font-weight='bold' text-anchor='middle' fill='%231e3a8a'>M</text></svg>">
-    <base target="_blank">
 </head>
 <body>
 
@@ -20,8 +19,7 @@
             <button data-target="#now" class="nav-btn active">Сейчас</button>
             <button data-target="#today" class="nav-btn">Сегодня</button>
             <button data-target="#tomorrow" class="nav-btn">Завтра</button>
-            <button data-target="#threeDay" class="nav-btn">3 дня</button>
-            <button data-target="#week" class="nav-btn">Неделя</button>
+            <button data-target="#week" class="nav-btn">5 Дней</button>
         </nav>
     </div>
     <div class="header-right">
@@ -38,6 +36,7 @@
             <div class="weather">
                 <div class="weather-pic">
                     <p class="city"></p>
+                    <p class="current-time"></p>
                     <h1 class="temp"></h1>
                     <div class="weather-image"></div>
                     <div class="weather-desc"></div>
@@ -62,9 +61,12 @@
             </div>
         </div>
         <div id="today" class="weather-card second"></div>
-        <div id="tomorrow" class="weather-card third"></div>
-        <div id="threeDay" class="weather-card fourth"></div>
-        <div id="week" class="weather-card fifth"></div>
+        <div id="tomorrow" class="weather-card third">
+            <div id="tomorrow-forecast"></div>
+        </div>
+        <div id="week" class="weather-card fourth">
+            <div id="week-forecast"></div>
+        </div>
     </div>
 </main>
 
